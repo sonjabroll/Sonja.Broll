@@ -1,0 +1,507 @@
+<!doctype html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sonja Broll – Bewerbungsportfolio</title>
+  <style>
+    :root {
+      --bg: #08111f;
+      --bg-2: #0c1830;
+      --card: rgba(255,255,255,0.08);
+      --card-strong: rgba(255,255,255,0.12);
+      --text: #eef4ff;
+      --muted: #a9bad8;
+      --line: rgba(255,255,255,0.14);
+      --accent: #52a8ff;
+      --accent-2: #65f0c7;
+      --accent-3: #8aa4ff;
+      --shadow: 0 18px 50px rgba(0, 0, 0, 0.28);
+      --radius: 24px;
+      --max: 1150px;
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      font-family: Inter, Arial, Helvetica, sans-serif;
+      color: var(--text);
+      background:
+        radial-gradient(circle at 10% 10%, rgba(82,168,255,0.18), transparent 26%),
+        radial-gradient(circle at 90% 15%, rgba(101,240,199,0.15), transparent 24%),
+        linear-gradient(180deg, var(--bg) 0%, var(--bg-2) 100%);
+      line-height: 1.55;
+    }
+
+    a { color: var(--text); }
+
+    .wrap {
+      max-width: var(--max);
+      margin: 0 auto;
+      padding: 18px 14px 42px;
+    }
+
+    .glass {
+      background: var(--card);
+      border: 1px solid var(--line);
+      box-shadow: var(--shadow);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border-radius: var(--radius);
+    }
+
+    .hero {
+      padding: 22px;
+      display: grid;
+      grid-template-columns: 1.4fr 0.9fr;
+      gap: 18px;
+      align-items: stretch;
+    }
+
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 8px 12px;
+      border-radius: 999px;
+      background: rgba(82,168,255,0.12);
+      border: 1px solid rgba(82,168,255,0.28);
+      color: var(--accent);
+      font-weight: 700;
+      font-size: 13px;
+      margin-bottom: 14px;
+    }
+
+    h1 {
+      margin: 0;
+      font-size: clamp(34px, 7vw, 64px);
+      line-height: 0.98;
+      letter-spacing: -0.04em;
+    }
+
+    .role {
+      margin: 12px 0 0;
+      font-size: clamp(18px, 3.1vw, 24px);
+      color: var(--accent-2);
+      font-weight: 700;
+    }
+
+    .subtitle {
+      margin: 16px 0 0;
+      font-size: 17px;
+      color: var(--muted);
+      max-width: 60ch;
+    }
+
+    .meta, .chips {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 16px;
+    }
+
+    .meta a, .meta span, .chip {
+      border: 1px solid var(--line);
+      background: rgba(255,255,255,0.06);
+      border-radius: 999px;
+      padding: 10px 14px;
+      text-decoration: none;
+      color: var(--text);
+      font-size: 14px;
+    }
+
+    .hero-side {
+      display: grid;
+      gap: 14px;
+    }
+
+    .panel {
+      padding: 18px;
+      border-radius: 22px;
+      border: 1px solid var(--line);
+      background: rgba(255,255,255,0.06);
+    }
+
+    .panel h3, .section h2 {
+      margin: 0 0 12px;
+      letter-spacing: -0.02em;
+    }
+
+    .drone-highlight {
+      background: linear-gradient(135deg, rgba(82,168,255,0.18), rgba(101,240,199,0.12));
+      border: 1px solid rgba(101,240,199,0.28);
+    }
+
+    .drone-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 10px;
+    }
+
+    .drone-icon {
+      font-size: 30px;
+    }
+
+    .drone-pill {
+      display: inline-block;
+      padding: 6px 10px;
+      border-radius: 999px;
+      background: rgba(101,240,199,0.15);
+      color: var(--accent-2);
+      border: 1px solid rgba(101,240,199,0.25);
+      font-size: 12px;
+      font-weight: 700;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(12, 1fr);
+      gap: 16px;
+      margin-top: 16px;
+    }
+
+    .section {
+      grid-column: span 12;
+      padding: 20px;
+    }
+
+    .section.half { grid-column: span 6; }
+    .section.third { grid-column: span 4; }
+
+    .intro-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 12px;
+      margin-top: 14px;
+    }
+
+    .mini-box {
+      padding: 14px;
+      border-radius: 18px;
+      background: rgba(255,255,255,0.06);
+      border: 1px solid var(--line);
+    }
+
+    .mini-box strong {
+      display: block;
+      font-size: 26px;
+      color: var(--accent-2);
+    }
+
+    .timeline, .skills-list, .preview-grid {
+      display: grid;
+      gap: 12px;
+    }
+
+    .item {
+      padding: 16px;
+      border-radius: 18px;
+      background: rgba(255,255,255,0.05);
+      border: 1px solid var(--line);
+    }
+
+    .item h4 {
+      margin: 0 0 6px;
+    }
+
+    .small {
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    ul.clean {
+      margin: 10px 0 0;
+      padding-left: 18px;
+    }
+
+    .skills-list {
+      margin-top: 8px;
+    }
+
+    .skill-row {
+      padding: 14px;
+      border-radius: 18px;
+      background: rgba(255,255,255,0.05);
+      border: 1px solid var(--line);
+    }
+
+    .skill-head {
+      display: flex;
+      justify-content: space-between;
+      gap: 12px;
+      margin-bottom: 8px;
+      font-size: 15px;
+      font-weight: 700;
+    }
+
+    .bar {
+      height: 10px;
+      border-radius: 999px;
+      background: rgba(255,255,255,0.08);
+      overflow: hidden;
+      border: 1px solid rgba(255,255,255,0.06);
+    }
+
+    .fill {
+      height: 100%;
+      border-radius: 999px;
+      background: linear-gradient(90deg, var(--accent), var(--accent-2));
+    }
+
+    .icon-title {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .icon {
+      width: 38px;
+      height: 38px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 12px;
+      background: rgba(82,168,255,0.14);
+      border: 1px solid rgba(82,168,255,0.2);
+      font-size: 18px;
+    }
+
+    .preview-grid {
+      grid-template-columns: repeat(3, 1fr);
+    }
+
+    .preview-card {
+      overflow: hidden;
+      border-radius: 18px;
+      border: 1px solid var(--line);
+      background: rgba(255,255,255,0.05);
+    }
+
+    .preview-thumb {
+      aspect-ratio: 4 / 5;
+      width: 100%;
+      object-fit: cover;
+      display: block;
+      background: rgba(255,255,255,0.06);
+    }
+
+    .preview-body {
+      padding: 14px;
+    }
+
+    .preview-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 10px;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 10px 12px;
+      border-radius: 12px;
+      text-decoration: none;
+      font-weight: 700;
+      border: 1px solid var(--line);
+      background: rgba(255,255,255,0.06);
+      color: var(--text);
+      font-size: 14px;
+    }
+
+    .btn.primary {
+      background: linear-gradient(135deg, rgba(82,168,255,0.24), rgba(138,164,255,0.22));
+    }
+
+    .doc-links {
+      display: grid;
+      gap: 10px;
+      margin-top: 12px;
+    }
+
+    .doc-link {
+      padding: 14px;
+      border-radius: 16px;
+      border: 1px solid var(--line);
+      text-decoration: none;
+      background: rgba(255,255,255,0.05);
+      display: flex;
+      justify-content: space-between;
+      gap: 12px;
+      align-items: center;
+    }
+
+    .footer {
+      color: var(--muted);
+      text-align: center;
+      margin-top: 16px;
+      font-size: 13px;
+    }
+
+    @media (max-width: 980px) {
+      .hero { grid-template-columns: 1fr; }
+      .section.half, .section.third { grid-column: span 12; }
+      .preview-grid { grid-template-columns: 1fr 1fr; }
+    }
+
+    @media (max-width: 700px) {
+      .wrap { padding: 10px 10px 28px; }
+      .hero, .section { padding: 16px; }
+      .meta a, .meta span, .chip { width: 100%; justify-content: flex-start; }
+      .intro-grid { grid-template-columns: 1fr; }
+      .preview-grid { grid-template-columns: 1fr; }
+      .drone-top, .skill-head, .doc-link { align-items: flex-start; flex-direction: column; }
+      .btn { width: 100%; }
+    }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <section class="hero glass">
+      <div>
+        <div class="badge">🗺 Digitales Portfolio · Variante A</div>
+        <h1>Sonja Broll</h1>
+        <div class="role">Geomatikerin · GIS · Vermessung · Geodaten</div>
+        <p class="subtitle">Technisch starke Geomatikerin mit abgeschlossener Ausbildung beim Wasserverband Eifel-Rur, sehr guten schulischen Leistungen und praktischer Erfahrung in Vermessung, GIS, Datenmanagement, Datenbanken und digitaler Auswertung.</p>
+        <div class="meta">
+          <span>📍 52391 Vettweiß</span>
+          <a href="mailto:sonja.broll.sb32@gmail.com">✉️ sonja.broll.sb32@gmail.com</a>
+          <a href="tel:+4915172639384">📞 0151 72639384</a>
+        </div>
+        <div class="chips">
+          <span class="chip">🗺 GIS</span>
+          <span class="chip">📍 GNSS-Vermessung</span>
+          <span class="chip">🧭 Geodatenmanagement</span>
+          <span class="chip">🗄 Datenbanken</span>
+          <span class="chip">📊 Excel / VBA</span>
+          <span class="chip">🛰 A1/A3 Drohnenlizenz</span>
+        </div>
+      </div>
+      <div class="hero-side">
+        <div class="panel">
+          <h3>Kurzübersicht</h3>
+          <p><strong>Aktuell:</strong> Seit 07/2025 Geomatikerin beim Wasserverband Eifel-Rur.</p>
+          <p><strong>Ausbildung:</strong> 08/2022 bis 06/2025 zur Geomatikerin beim WVER.</p>
+          <p><strong>Berufsschulabschluss:</strong> 1,7 (gut).</p>
+          <p><strong>Sprachen:</strong> Deutsch, Polnisch, Englisch.</p>
+        </div>
+        <div class="panel drone-highlight">
+          <div class="drone-top">
+            <div>
+              <div class="drone-pill">Hervorgehobene Zusatzqualifikation</div>
+              <h3 style="margin-top:10px">Drohnenführerschein A1/A3</h3>
+            </div>
+            <div class="drone-icon">🛰</div>
+          </div>
+          <p>EU / EASA Nachweis mit Gültigkeit bis <strong>27.11.2029</strong>. Besonders interessant für Tätigkeiten mit Vermessung, Dokumentation, Geländeübersicht und technischem Außeneinsatz.</p>
+          <a class="btn primary" href="Drohnenführerschein.pdf" target="_blank">Lizenz öffnen</a>
+        </div>
+      </div>
+    </section>
+
+    <div class="grid">
+      <section class="section glass">
+        <h2>Profil</h2>
+        <p>Ich arbeite mich schnell in neue Aufgaben ein und verbinde technisches Verständnis mit strukturierter, zuverlässiger Arbeitsweise. In der Ausbildung habe ich insbesondere Erfahrung mit Vermessung, der Erfassung und Analyse raumbezogener Daten, GIS-Systemen, Datenbanken und der Aufbereitung von Informationen für die praktische Anwendung aufgebaut.</p>
+        <div class="intro-grid">
+          <div class="mini-box"><strong>1,7</strong>Berufsschulabschluss<br><span class="small">Note: gut</span></div>
+          <div class="mini-box"><strong>2</strong>Excel-Weiterbildungen<br><span class="small">Datenauswertung & VBA</span></div>
+          <div class="mini-box"><strong>2029</strong>Drohnenlizenz gültig<br><span class="small">A1/A3</span></div>
+        </div>
+      </section>
+
+      
+<section class="section half glass">
+  <h2>Fachkompetenzen</h2>
+  <div class="skills-list">
+    <div class="item">🗺 GIS & Geodatenmanagement</div>
+    <div class="item">📍 GNSS / Vermessung</div>
+    <div class="item">🗄 Datenbanken / Access</div>
+    <div class="item">📊 Excel Datenauswertung</div>
+    <div class="item">⚙️ Makros & VBA</div>
+    <div class="item">🤝 Teamfähigkeit & Zuverlässigkeit</div>
+  </div>
+</section>
+
+
+      <section class="section third glass">
+        <h2>Stärken</h2>
+        <div class="skills-list">
+          <div class="item">⚡ Schnelle Auffassungsgabe</div>
+          <div class="item">✅ Hohe Eigeninitiative</div>
+          <div class="item">🔍 Sorgfältige Arbeitsweise</div>
+          <div class="item">🤝 Loyal & teamfähig</div>
+          <div class="item">📈 Sehr gute Arbeitsergebnisse</div>
+        </div>
+      </section>
+
+      <section class="section third glass">
+        <h2>Sprachen & Mobilität</h2>
+        <div class="skills-list">
+          <div class="item">Deutsch</div>
+          <div class="item">Polnisch</div>
+          <div class="item">Englisch</div>
+          <div class="item">Führerschein Klasse B</div>
+          <div class="item">🛰 Drohnenführerschein A1/A3</div>
+        </div>
+      </section>
+
+      <section class="section third glass">
+        <h2>Interessen</h2>
+        <div class="skills-list">
+          <div class="item">🏈 American Football</div>
+          <div class="item">🏀 Basketball</div>
+          <div class="item">🎵 Musik</div>
+          <div class="item">📚 Lesen</div>
+          <div class="item">🥾 Wandern</div>
+        </div>
+      </section>
+
+      <section class="section glass">
+        <h2>Dokumentenvorschau</h2>
+        <div class="preview-grid">
+          <div class="preview-card">
+            <img class="preview-thumb" src="cv_preview_real.png" alt="Vorschau Lebenslauf" />
+            <div class="preview-body">
+              <strong>Lebenslauf</strong>
+              <div class="small">Persönliche Angaben, Ausbildung, Berufserfahrung, Sprachen und Hobbys.</div>
+              <div class="preview-actions"><a class="btn primary" href="Lebenslauf.pdf" target="_blank">Öffnen</a></div>
+            </div>
+          </div>
+          <div class="preview-card">
+            <img class="preview-thumb" src="Arbeitszeugnis_1.jpg" alt="Vorschau Ausbildungszeugnis" />
+            <div class="preview-body">
+              <strong>Ausbildungszeugnis</strong>
+              <div class="small">Bewertung der Ausbildung mit sehr starker Gesamtbeurteilung.</div>
+              <div class="preview-actions">
+                <a class="btn primary" href="Arbeitszeugnis_1.jpg" target="_blank">Seite 1</a>
+                <a class="btn" href="Arbeitszeugnis_2.jpg" target="_blank">Seite 2</a>
+              </div>
+            </div>
+          </div>
+          <div class="preview-card">
+            <img class="preview-thumb" src="drone_preview_real.png" alt="Vorschau Drohnenlizenz" />
+            <div class="preview-body">
+              <strong>Drohnenführerschein</strong>
+              <div class="small">EASA / LBA A1/A3, gültig bis 27.11.2029.</div>
+              <div class="preview-actions"><a class="btn primary" href="Drohnenführerschein.pdf" target="_blank">Öffnen</a></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="doc-links">
+          <a class="doc-link" href="Abschlusszeugnis_Schule.pdf" target="_blank"><span>Abschlusszeugnis Schule</span><span>1,7 · gut</span></a>
+          <a class="doc-link" href="Teilnahmebescheinigung_Excel_Aufbau-11.pdf" target="_blank"><span>Excel Aufbau / Datenauswertung</span><span>VHS Rur-Eifel</span></a>
+          <a class="doc-link" href="Teilnahmebescheinigung_Excel_Makro-05.pdf" target="_blank"><span>Excel Makros und VBA</span><span>VHS Rur-Eifel</span></a>
+        </div>
+      </section>
+    </div>
+
+    <div class="footer">Modernes tech-orientiertes Portfolio, optimiert für Smartphone und QR-Code-Aufruf.</div>
+  </div>
+</body>
+</html>
